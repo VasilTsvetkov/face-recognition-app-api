@@ -12,7 +12,8 @@ import { handleImage, handleApiCall } from './controllers/image.js';
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'dpg-cnk2poq1hbls739r5dbg-a.frankfurt-postgres.render.com',
+    connectionString: 'postgres://face_recognition_app_db_kww4_user:IgT2IwY3p0V47vDQpv7lFcdbUgwVVKKs@dpg-cnk2poq1hbls739r5dbg-a/face_recognition_app_db_kww4',
+    host : 'dpg-cnk2poq1hbls739r5dbg-a',
     user : 'face_recognition_app_db_kww4_user',
     port : 5432,
     password : 'IgT2IwY3p0V47vDQpv7lFcdbUgwVVKKs',
