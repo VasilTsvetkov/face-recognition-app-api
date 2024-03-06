@@ -55,4 +55,4 @@ const handleImage = (req, res, db) => {
 	  	.catch(err => res.status(400).json('error when getting entries'))
 }
 
-export default handleImage, handleApiCall
+export { handleImage, handleApiCall };
