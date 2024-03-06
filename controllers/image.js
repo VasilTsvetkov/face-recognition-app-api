@@ -55,7 +55,4 @@ const handleImage = (req, res, db) => {
 	  	.catch(err => res.status(400).json('error when getting entries'))
 }
 
-module.exports = {
-	handleImage: handleImage,
-	handleApiCall: handleApiCall
-}
+export default handleImage, handleApiCall
