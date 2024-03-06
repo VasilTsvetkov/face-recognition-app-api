@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors');
-const knex = require('knex');
+import express from 'express';
+import bodyParser from 'body-parser';
+import bcrypt from 'bcrypt-nodejs';
+import cors from 'cors';
+import knex from 'knex';
 
 import handleRegister from './controllers/register.js';
 import handleSignIn from'./controllers/signIn.js';
@@ -28,15 +28,15 @@ app.get('/', (req, res) => {
 	res.send('Success');
 })
 
-app.post('/signin', (req, res) => { signIn.handleSignIn(req, res, db, bcrypt) });
+app.post('/signin', (req, res) => { handleSignIn(req, res, db, bcrypt) });
 
-app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
+app.post('/register', (req, res) => { handleRegister(req, res, db, bcrypt) });
 
-app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) });
+app.get('/profile/:id', (req, res) => { handleProfileGet(req, res, db) });
 
-app.put('/image', (req, res) => { image.handleImage(req, res, db ) });
+app.put('/image', (req, res) => { handleImage(req, res, db ) });
 
-app.post('/imageurl', (req, res) => { image.handleApiCall(req, res, ) });
+app.post('/imageurl', (req, res) => { handleApiCall(req, res ) });
 
 app.listen(3000, () => {
 	console.log("app works");
