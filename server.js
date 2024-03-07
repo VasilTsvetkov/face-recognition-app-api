@@ -12,12 +12,12 @@ import { handleImage, handleApiCall } from './controllers/image.js';
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: 'postgres://face_recognition_app_db_kww4_user:IgT2IwY3p0V47vDQpv7lFcdbUgwVVKKs@dpg-cnk2poq1hbls739r5dbg-a/face_recognition_app_db_kww4',
-    host : 'dpg-cnk2poq1hbls739r5dbg-a',
-    user : 'face_recognition_app_db_kww4_user',
+    connectionString: process.env.DATABASE_URL,
+    host : process.env.DATABASE_HOST,
+    user : process.env.DATABASE_USER,
     port : 5432,
-    password : 'IgT2IwY3p0V47vDQpv7lFcdbUgwVVKKs',
-    database : 'face_recognition_app_db_kww4'
+    password : process.env.DATABASE_PW,
+    database : process.env.DATABASE_DB
   }
 });
 
@@ -39,6 +39,8 @@ app.put('/image', (req, res) => { handleImage(req, res, db ) });
 
 app.post('/imageurl', (req, res) => { handleApiCall(req, res ) });
 
-app.listen(3000, () => {
-	console.log("app works");
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
